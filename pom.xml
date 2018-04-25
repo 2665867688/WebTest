@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yue.webtest</groupId>
+    <artifactId>WebTest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>WebTest Maven Webapp</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <!--编码格式-->
+        <file.encoding>UTF-8</file.encoding>
+        <!--需要引入的spring的版本-->
+        <spring.version>4.2.2.RELEASE</spring.version>
+        <!--需要引入的mysql的版本-->
+        <mysql.version>5.1.29</mysql.version>
+        <!--java servlet版本(交互式的修改和浏览数据生成web内容) 客户端->服务器->servlet响应服务器->服务器将响应返回给客户端-->
+        <servlet.version>3.0-alpha-1</servlet.version>
+        <!--commons-codec版本 包含一些通用的编码解码算法。包括一些语音编码器，Hex,Base64-->
+        <commons-codec.version>1.9</commons-codec.version>
+        <!--commons-dbcp版本 主流数据库连接池之一-->
+        <!--数据库连接池：数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。-->
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <!--hibernate.validator 版本， bean的自动校验-->
+        <hibernate.validator.version>5.0.2.Final</hibernate.validator.version>
+        <!--servlet容器 但是现在用tomcat做servlet容器-->
+        <jetty.version>8.1.8.v20121106</jetty.version>
+        <!--，SLF4J是一个用于日志系统的简单Facade，允许最终用户在部署其应用时使用其所希望的日志System-->
+        <slf4j.version>1.7.5</slf4j.version>
+        <!--单元测试构建版本-->
+        <testng.version>6.8.7</testng.version>
+        <!--aspectj版本 AspectJ是一个面向切面的框架，它扩展了Java语言-->
+        <aspectj.version>1.8.1</aspectj.version>
+        <!--aop切面编程框架-->
+        <aopalliance.version>1.0</aopalliance.version>
+        <!--aop切变变成所需的包-->
+        <aspectjweaver.version>1.6.8</aspectjweaver.version>
+        <!--单元测试框架 和junit一起-->
+        <mockito.version>1.10.19</mockito.version>
+        <!--单元测试管理框架-->
+        <unitils.version>3.4.2</unitils.version>
+        <!--浏览器自动化测试框架-->
+        <selenium.version>2.41.0</selenium.version>
+        <!--数据库单元测试框架-->
+        <dbunit.version>2.5.1</dbunit.version>
+        <!--书写匹配器对象时允许直接定义匹配规则的框架-->
+        <hamcrest.version>1.3</hamcrest.version>
+        <!--mybatis-->
+        <mybatis.version>3.4.1</mybatis.version>
+        <jackson.version>2.8.5</jackson.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.2.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+
+        <!--数据库配置依赖-->
+        <!--mysql数据库驱动工具包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <!--orm 框架 mybatis依赖-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>WebTest</finalName>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
