@@ -33,4 +33,14 @@
         <url-pattern>/HelloWorld</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MybatisServlet</servlet-name>
+        <servlet-class>com.yue.webtest.servlet.MybatisServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MybatisServlet</servlet-name>
+        <url-pattern>/mybatis</url-pattern>
+    </servlet-mapping>
+
 </web-app>
