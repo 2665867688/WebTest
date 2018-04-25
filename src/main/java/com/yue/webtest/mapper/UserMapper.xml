@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yue.webtest.mapper.UserMapper">
 
-    <select id="getUser" resultType="User" parameterType="String">
+    <select id="getUser" resultType="com.yue.webtest.po.User" parameterType="String">
       SELECT * FROM user WHERE name=#{name}
     </select>
 

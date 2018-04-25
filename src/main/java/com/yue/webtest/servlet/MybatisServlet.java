@@ -16,7 +16,12 @@ public class MybatisServlet extends HttpServlet {
         // 指定服务器相应的编码格式为utf-8:支持中文
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
+
+
+
         out.print("Hello World mybatis");
+
+
 
     }
 
